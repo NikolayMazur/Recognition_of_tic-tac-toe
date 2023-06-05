@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image</title>
+     <style>
+
+    #processingText {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+        <h2>Распознование крестиков ноликов</h2>
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+      {{ form.as_p }}
+
+        <button id="myButton" type="submit">Загрузить</button>
+        <p id="processingText" style="display:none;">Данные обрабатываются . . .</p>
+
+    </form>
+
+  <script>
+    var button = document.getElementById("myButton");
+    var processingText = document.getElementById("processingText");
+    button.addEventListener("click", function() {
+      processingText.style.display = "block";
+      // здесь можно добавить код для обработки данных
+    });
+  </script>
+
+</body>
+</html>
